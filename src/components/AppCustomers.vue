@@ -24,6 +24,10 @@
                 </tr>
             </tbody>
         </table>
+        <router-link :to="{name: 'add-customer'}">
+            <button class="btn btn-primary">Add Customer</button>
+        </router-link>
+        
     </div>
 </template>
 
@@ -40,6 +44,7 @@ export default {
     },
 
     methods: {
+        //ova metoda se pokrece kad se pokerene metoda uz CustomerService.js (remove(customer))
         removeCustomer(customer) {
             customerService.remove(customer);
         }

@@ -6,26 +6,31 @@ const customers = [
 
 let nextId = 4;
 
-//izlistavanje customera
+//klasa CustomerService koja sadrzi fnc koje cemo koristiti u komponentama u kojima nam treba, a koje su vezane za customera
 class CustomerService {
+    //izlistavanje customera
     list() {
         return customers;
     }
 
+    //nadji customera po 'id'
     find(id) {
         return customers.find(customer => customer.id == id);
     }
 
+    //dodaj novog customera
     add(customer) {
         customer.id = nextId;
         customers.push(customer);
         nextId++;
     }
 
+    //izbrisi customera
     remove(customer) {
         customers.splice(customers.indexOf(customer), 1);
     }
 
+    //dodaj proizvod u niz proizvoda Customera
     addProductToCustomer() {
         customer.products.push(product);
     }

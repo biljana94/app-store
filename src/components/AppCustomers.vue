@@ -5,6 +5,7 @@
         <!--IZLISTAVANJE CUSTOMERA-->
         <table class="table table-dark">
             <thead>
+                
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Remove Customer</th>
@@ -12,8 +13,10 @@
             <tbody>
                 <tr v-for="(customer, index) in customers" :key="index">
                     <td>
-                        {{customer.firstName}}
-                        {{customer.lastName}}
+                        <router-link :to="{name: 'latest-purchases', params: {id: customer.id}}">
+                            {{customer.firstName}}
+                            {{customer.lastName}}
+                        </router-link>
                     </td>
                 
                     <td>{{customer.email}}</td>
@@ -24,9 +27,13 @@
                 </tr>
             </tbody>
         </table>
+
         <router-link :to="{name: 'add-customer'}">
             <button class="btn btn-primary">Add Customer</button>
         </router-link>
+
+
+        <!-- <LatestPurchases :customer="routeCustomer" /> -->
         
     </div>
 </template>
@@ -35,8 +42,14 @@
 <script>
 
 import customerService from '../service/CustomerService.js'; //importujemo CustomerService
+import LatestPurchases from './LatestPurchases.vue';
 
 export default {
+
+    components: {
+        LatestPurchases
+    },
+
     data() {
         return {
             customers: customerService.list()
@@ -48,6 +61,8 @@ export default {
         removeCustomer(customer) {
             customerService.remove(customer);
         }
-    }
+    },
+
+
 }
 </script>

@@ -41,7 +41,7 @@ export default {
         //fnc koja poziva fnc iz CustomerService.js (add(customer))
         addNewCustomer() {
             customerService.add(this.newCustomer);
-            this.newCustomer = {};
+            this.newCustomer = {}; //vracamo prazan objekat customera da bi mogli da unesemo novog
 
         }
     }

@@ -5,8 +5,8 @@ const products = [
     {id: '4', title: 'Rukavice', quantity: '30'},
     {id: '5', title: 'Sal', quantity: '20'},
     {id: '6', title: 'Trenerka', quantity: '15'},
-    {id: '7', title: 'Majica - dugi rukav', quantity: '25'},
-    {id: '8', title: 'Majica - kratki rukav', quantity: '25'},
+    {id: '7', title: 'Majica dugi rukav', quantity: '25'},
+    {id: '8', title: 'Majica kratki rukav', quantity: '25'},
     {id: '9', title: 'Patike', quantity: '20'},
 ];
 
@@ -19,6 +19,11 @@ class ProductService {
     list() {
         return products;
     }
+
+    //filtriranje proizvoda po nazivu
+    // find(title) {
+    //     return products.filter(product => product.title == title);
+    // }
 }
 
 

@@ -14,16 +14,24 @@ const products = [
 let nextId = 10;
 
 
+
 class ProductService {
     //izlistavanje proizvoda
     list() {
         return products;
     }
 
-    //filtriranje proizvoda po nazivu
-    // find(title) {
-    //     return products.filter(product => product.title == title);
-    // }
+    //dodavanje jednog proizvoda na lager
+    increment(product) {
+        //trazim proizvod preko id, i povecavam mu stanje na lageru
+        products.find(prod => prod.id == product.id).quantity++;
+    }
+
+    //brisanje jednog proizvoda sa lagera
+    decrement(product) {
+        //trazim odredjen proizvod preko id, i smanjujem mu stanje na lageru
+        products.find(prod => prod.id == product.id).quantity--;
+    }
 }
 
 

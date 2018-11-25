@@ -1,5 +1,5 @@
 const products = [
-    {id: '1', title: 'Jakna', quantity: '15'},
+    {id: '1', title: 'Jakna', quantity: '1'},
     {id: '2', title: 'Cipele', quantity: '20'},
     {id: '3', title: 'Kapa', quantity: '30'},
     {id: '4', title: 'Rukavice', quantity: '30'},
@@ -24,13 +24,20 @@ class ProductService {
     //dodavanje jednog proizvoda na lager
     increment(product) {
         //trazim proizvod preko id, i povecavam mu stanje na lageru
-        products.find(prod => prod.id == product.id).quantity++;
+        // products.find(prod => prod.id == product.id).quantity++;
+        product.quantity++;
     }
 
     //brisanje jednog proizvoda sa lagera
     decrement(product) {
         //trazim odredjen proizvod preko id, i smanjujem mu stanje na lageru
-        products.find(prod => prod.id == product.id).quantity--;
+        // products.find(prod => prod.id == product.id).quantity--;
+        product.quantity > 0 && product.quantity--;
+    }
+
+    //trazimo proizvod preko id
+    find(id) {
+        return products.find(product => product.id == id);
     }
 }
 

@@ -14,7 +14,7 @@ import AppCustomers from './components/AppCustomers.vue';
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HelloWorld,
   }
 }
 </script>

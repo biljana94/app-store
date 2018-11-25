@@ -47,7 +47,7 @@ import LatestPurchases from './LatestPurchases.vue';
 export default {
 
     components: {
-        LatestPurchases
+        LatestPurchases,
     },
 
     data() {

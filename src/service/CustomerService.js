@@ -1,7 +1,9 @@
 const customers = [
-    {id: 1, firstName: 'Milica', lastName: 'Mihajlovic', email: 'milica@yahoo.com', products: []},
+    {id: 1, firstName: 'Boris', lastName: 'Balac', email: 'boris@yahoo.com', products: []},
     {id: 2, firstName: 'Ivana', lastName: 'Zonic', email: 'ivana@yahoo.com', products: []},
-    {id: 3, firstName: 'Biljana', lastName: 'Jelaca', email: 'bilja@yahoo.com', products: []}
+    {id: 3, firstName: 'Milica', lastName: 'Mihajlovic', email: 'milica@yahoo.com', products: []},
+    {id: 4, firstName: 'Biljana', lastName: 'Jelaca', email: 'bilja@yahoo.com', products: []},
+    
 ];
 
 let nextId = 4;
@@ -31,8 +33,8 @@ class CustomerService {
     }
 
     //dodaj proizvod u niz proizvoda Customera
-    addProductToCustomer() {
-        customer.products.push(product);
+    addProductToCustomer(customer, product) {
+        customer.products.push(product.title);
     }
 }
 

@@ -17,6 +17,7 @@
             <thead>
                 <th scope="col">Title</th>
                 <th scope="col">Quantity</th>
+                <th scope="col">Sell</th>
             </thead>
 
             <tbody>
@@ -25,6 +26,7 @@
                     vrati taj proizvod koji je unet u polje search-->
                 <tr v-for="(product, index) in products" :key="index" v-if="product.title.toLowerCase().includes(search.toLowerCase())">
                     <td>{{product.title}}</td>
+
                     <td>
                         {{product.quantity}}
                         
@@ -38,6 +40,13 @@
                             </button>
                         </div>
                     </td>
+
+                    <td>
+                        <!--moramo u router-link tagu da prosledimo parametar 'id' preko kojeg lociramo tacno koji proizvod zelimo da prodamo-->
+                        <router-link :to="{name: 'sell-product', params: {id: product.id}}">
+                            <button type="button" class="btn btn-primary">Sell Product</button>
+                        </router-link>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -49,9 +58,13 @@
 <script>
 
 import productService from '../service/ProductService.js'; //importovali smo ProductService.js u kojoj su nam funkcije za proizvode i sami proizvodi
-
+import SellProduct from './SellProduct.vue';
 
 export default {
+
+    components: {
+        SellProduct,
+    },
 
     //fnc koja vraca objekat
     data() {
@@ -73,11 +86,10 @@ export default {
         //fnc koja poziva fnc iz ProductService.js
         decrementProductQuantity(product) {
             //ako je kolicina nekog proizvoda(product.quantity) > 0
-            if(product.quantity > 0) {
-                //onda mozemo da pozovemo fnc iz ProductService.js koja smanjuje stanje na lageru
-                productService.decrement(product);
-            }
-            
+            // if(product.quantity > 0) {
+            //     //onda mozemo da pozovemo fnc iz ProductService.js koja smanjuje stanje na lageru
+            // }
+            productService.decrement(product);
         }
     },
 }

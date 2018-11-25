@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h5>Customer Details</h5>
+        <h4>Customer Details</h4>
 
         <ul class="list-group list-group-flush">
             <li class="list-group-item list-group-item-info"><b>First Name:</b> {{customer.firstName}}</li>
